@@ -1,16 +1,21 @@
-# File Picker 
+# PDF File Picker & PDF Preview App
 
-A new Flutter project.
+This is an example of pdf file picker and pdf preview flutter app. We can select single pdf file or multiple at the same time.
 
-## Getting Started
+## Packages
 
-This project is a starting point for a Flutter application.
+  flutter_pdfview: any
+  file_picker: any
+  path: any
 
-A few resources to get you started if this is your first Flutter project:
+## file_picker
+This package is used to pick files from directory.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## path
+This path package provides file name.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## flutter_pdfview
+This flutter pdf view is used to view pdf. I am using this for a preview only.
+
+
+<img width="409" alt="Screenshot 2024-05-21 at 5 55 40 PM" src="https://github.com/faizanShoukat55/file_picker_flutter/assets/37035175/d78bbd58-f9e8-4ac8-8e08-70f4d97aeb9c">
