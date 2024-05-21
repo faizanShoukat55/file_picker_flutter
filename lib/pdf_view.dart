@@ -204,7 +204,52 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
         ),
         body: Stack(
           children: <Widget>[
-            ListView.builder(
+
+            PDFView(
+              //filePath: "https://docs.google.com/viewerng/viewer?url=https://www.learningcontainer.com/download/sample-pdf-file-for-testing/?ind%3D0%26filename%3Dsample-pdf-file.pdf%26wpdmdl%3D1566%26refresh%3D663cc84a4b8fd1715259466%26open%3D1",
+              filePath: "http://www.pdf995.com/samples/pdf.pdf",
+              enableSwipe: false,
+              swipeHorizontal: false,
+              autoSpacing: false,
+              pageFling: false,
+              pageSnap: true,
+              defaultPage: currentPage!,
+              fitPolicy: FitPolicy.BOTH,
+              preventLinkNavigation: false,
+              // if set to true the link is handled in flutter
+              onRender: (_pages) {
+                setState(() {
+                  pages = _pages;
+                  isReady = true;
+                });
+              },
+              onError: (error) {
+                setState(() {
+                  errorMessage = error.toString();
+                });
+                print(error.toString());
+              },
+              onPageError: (page, error) {
+                setState(() {
+                  errorMessage = '$page: ${error.toString()}';
+                });
+                print('$page: ${error.toString()}');
+              },
+              onViewCreated: (PDFViewController pdfViewController) {
+                _controller.complete(pdfViewController);
+              },
+              onLinkHandler: (String? uri) {
+                print('goto uri: $uri');
+              },
+              onPageChanged: (int? page, int? total) {
+                print('page change: $page/$total');
+                setState(() {
+                  currentPage = page;
+                });
+              },
+            ),
+
+           /* ListView.builder(
               itemCount: widget.filePaths!.length,
               itemBuilder: (BuildContext context, int index) {
                 var filePath = widget.filePaths?[index];
@@ -262,7 +307,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
                   ),
                 );
               },
-            ),
+            ),*/
 
             /* widget.filePaths!.length > 1
                   ? GridView.builder(
@@ -321,7 +366,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
                       },
                     )
                   : PDFView(
-                      filePath: widget.filePaths!.first,
+                      filePath: "https://docs.google.com/viewerng/viewer?url=https://www.learningcontainer.com/download/sample-pdf-file-for-testing/?ind%3D0%26filename%3Dsample-pdf-file.pdf%26wpdmdl%3D1566%26refresh%3D663cc84a4b8fd1715259466%26open%3D1",
                       enableSwipe: false,
                       swipeHorizontal: false,
                       autoSpacing: false,
