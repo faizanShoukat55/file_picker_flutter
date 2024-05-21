@@ -19,6 +19,6 @@ This flutter pdf view is used to view pdf. I am using this for a preview only.
 
 
 
-## Packages
+## Example
 
 <img width="409" alt="Screenshot 2024-05-21 at 5 55 40 PM" src="https://github.com/faizanShoukat55/file_picker_flutter/assets/37035175/d78bbd58-f9e8-4ac8-8e08-70f4d97aeb9c">
